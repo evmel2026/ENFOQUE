@@ -14,7 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ENFOQUE">
-<meta name="app-version" content="1.12.0">
+<meta name="app-version" content="1.13.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..900;1,100..125,700..900&family=Exo+2:ital,wght@0,400..700;1,900&family=Anton&family=Bebas+Neue&family=Russo+One&family=Bungee&family=Montserrat:ital,wght@1,900&family=Orbitron:wght@900&family=Kanit:ital,wght@1,800&family=Teko:wght@700&family=Black+Ops+One&family=Righteous&family=Krona+One&family=Audiowide&family=Zen+Dots&family=Oswald:wght@700&family=Staatliches&family=Passion+One:wght@900&family=Bowlby+One+SC&family=Alfa+Slab+One&family=Squada+One&family=Chakra+Petch:ital,wght@1,700&family=Saira+Stencil+One&family=Rubik+Mono+One&family=Racing+Sans+One&family=Titan+One&family=Sigmar+One&family=Bangers&family=Luckiest+Guy&family=Permanent+Marker&family=Fredoka:wght@700&family=Monoton&family=Lobster&family=Pacifico&family=Cinzel:wght@900&family=Playfair+Display:ital,wght@1,500;1,900&family=Abril+Fatface&family=Great+Vibes&family=Outfit:wght@200;300;400&family=Comfortaa:wght@400&display=swap">
 <style>
@@ -184,7 +184,7 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
 <header class="top">
   <div class="brand"><svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Logo de ENFOQUE"><defs><linearGradient id="lgE" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100"><stop offset="0" stop-color="#7cc8ff"/><stop offset="1" stop-color="#2ee6d6"/></linearGradient></defs><g class="spin" stroke="url(#lgE)" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28V10h18M72 10h18v18M90 72v18H72M28 90H10V72"/></g><g stroke="url(#lgE)" stroke-width="4.2" stroke-linecap="round" fill="none"><path d="M38 32v36M38 32h24M38 50h18M38 68h24"/></g></svg>
     <div class="bname"><b>ENFOQUE</b><span class="sub">Collage y Minutas</span><p class="dev">desarrollado por <span class="who">Melina Ailén La Fuente</span><br>Secretaría Académica · DCFyCCCO</p></div></div>
-  <div class="topR"><button class="inst" id="bInst" type="button" hidden>Instalar app</button><span class="ver">v1.12</span></div>
+  <div class="topR"><button class="inst" id="bInst" type="button" hidden>Instalar app</button><span class="ver">v1.13</span></div>
 </header>
 
 <nav class="mode" id="mode" aria-label="Secciones">
@@ -222,12 +222,14 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
       <h2><i>2</i>Título del evento</h2>
       <label for="tEvento">¿Qué se hizo?</label>
       <input id="tEvento" type="text" value="Confección de declaraciones juradas" maxlength="70" autocomplete="off">
+      <div class="field"><label for="tSub2">Segunda línea, más chica (opcional)</label><input id="tSub2" type="text" maxlength="80" autocomplete="off"></div>
       <div class="chips" id="chips"></div>
       <div class="efem" id="efem" hidden></div>
       <div class="field"><span class="lbl">Letra</span><div class="chips" id="fcats" style="margin:0 0 10px"></div><div class="fonts" id="fonts"></div><input id="fFont" type="file" accept=".ttf,.otf,.woff,.woff2,font/*" hidden><p class="note" id="fontNote" hidden></p></div>
       <div class="field"><span class="lbl">Efecto</span><div class="seg" id="fx" style="--n:3"></div></div>
       <div class="field"><span class="lbl">Alineación</span><div class="seg" id="align"></div></div>
-      <div class="field"><label for="tSize">Tamaño <b id="tSizeV" style="color:var(--fg)">100%</b></label><input id="tSize" type="range" min="40" max="250" step="5" value="100"></div>
+      <div class="field"><label for="tSize">Tamaño del título <b id="tSizeV" style="color:var(--fg)">100%</b></label><input id="tSize" type="range" min="40" max="250" step="5" value="100"></div>
+      <div class="field" id="subF" hidden><label for="subK">Tamaño de la segunda línea <b id="subKV" style="color:var(--fg)">45%</b> del título</label><input id="subK" type="range" min="20" max="90" step="5" value="45"></div>
       <label class="tog"><input id="dateOn" type="checkbox"> Agregar la fecha debajo del título</label>
       <div class="field" id="dateF" hidden><label for="dateV">Fecha</label><input id="dateV" type="date" style="width:100%;background:var(--field);border:1px solid var(--line);color:var(--fg);font:600 15px var(--body);padding:10px 12px;border-radius:12px"></div>
       <div class="field"><label for="credit">Foto de (opcional)</label><input id="credit" type="text" maxlength="40" autocomplete="off"></div>
@@ -366,7 +368,7 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
     <div id="mList" class="mlist"></div>
   </div>
 </section>
-<p class="credit">ENFOQUE v1.12 · Desarrollado por MLF · Secretaría Académica DCFyCCCO</p>
+<p class="credit">ENFOQUE v1.13 · Desarrollado por MLF · Secretaría Académica DCFyCCCO</p>
 
 <div class="sheet" id="sheet" hidden>
   <div class="box">
@@ -479,7 +481,7 @@ const L = {"1": [[[0, 0, 1, 1]], [[0.1, 0, 0.8, 1]], [[0, 0.1, 1, 0.8]]], "2": [
 
 /* ---------- Estado ---------- */
 const st = {mode:'foto', theme:'celeste', fmt:'sq', variant:0, frame:'tarjeta', media:[],
-  t:{font:'archivo', fx:'degrade', align:'left', scale:1, off:[0,0], sig:false},
+  t:{font:'archivo', fx:'degrade', align:'left', scale:1, off:[0,0], sig:false, subK:.45},
   sh:{pos:'abajo', scale:1, off:{pol:[0,0], dcf:[0,0]}, k:{pol:1,dcf:1}}, sg:{scale:1, off:[0,0]}, scrim:false, bgm:'none', inset:0, fit:false, show:{pol:true,dcf:true}, dur:10, snd:false, anim:true, view:'collage', vstyle:'grid', pf:{b:100,c:100,s:100,bw:false}, dateOn:false, credit:'', stk:[], mus:{id:'competencia', vol:.8, buf:null, name:'', start:0}};
 let cells=[], stkRects=[], shRects=[], titleRect={x:0,y:0,w:0,h:0}, sgRect={x:0,y:0,w:0,h:0}, recording=false;
 
@@ -643,6 +645,16 @@ function draw(tm){
   // título
   let tA=1, tDx=0; if(anim){const k=Math.min(1,tm/0.7), e=1-Math.pow(1-k,3); tA=k; tDx=-(1-e)*80;}
   titleRect=drawTitle(T,tx+st.t.off[0]*W,y+st.t.off[1]*W,W,lay,tA,tDx);
+  // segunda línea, más chica, con la misma letra y efecto
+  const sub2=$('tSub2').value.trim().toUpperCase();
+  if(sub2){ const f=lay.font; let ss=Math.max(14,Math.round(lay.size*(st.t.subK||.45)));
+    let ls=wrap(sub2,HW,f,ss); ctx.font=f.f(ss); while(ss>14 && (ls.length>2 || Math.max(...ls.map(l=>ctx.measureText(l).width))+ss*.22>HW)){ ss-=2; ls=wrap(sub2,HW,f,ss); ctx.font=f.f(ss); }
+    const a=st.t.align, ax= a==='left'? titleRect.x : a==='center'? titleRect.x+titleRect.w/2 : titleRect.x+titleRect.w;
+    const ww=Math.max(...ls.map(l=>ctx.measureText(l).width)); const bx= a==='left'? ax : a==='center'? ax-ww/2 : ax-ww;
+    let yy=titleRect.y+titleRect.h+ss*.15;
+    ctx.save(); ctx.globalAlpha=tA; ls.forEach((ln,i)=>paintLine(ln,ax,yy+ss*.84+i*ss*1.05,ss,f,st.t.fx,T,a,bx,Math.max(ww,W*.4))); ctx.restore();
+    const hh=ss*.15+ls.length*ss*1.05; const nx=Math.min(titleRect.x,bx), nr=Math.max(titleRect.x+titleRect.w,bx+ww);
+    titleRect={x:nx,y:titleRect.y,w:nr-nx,h:titleRect.h+hh}; }
 
   // fecha debajo del título
   if(st.dateOn){ const fs=Math.round(W*.03*Math.max(.8,Math.min(1.4,st.t.scale))); ctx.save(); ctx.font=`700 ${fs}px Archivo${FB}`; ctx.letterSpacing='3px';
@@ -656,7 +668,7 @@ function draw(tm){
   [['pol',imgPol],['dcf',imgDcf]].forEach(([k,im])=>{ if(!im||!st.show[k]) return; let h,x,yb;
     const kk=(st.sh.k&&st.sh.k[k])||1;
     if(pos==='abajo'){h=W*.235*sc*kk; const w=sw_(im,h); x= k==='pol'? EDs : W-EDs-w; yb=base;}
-    else if(pos==='bajo'){h=W*.2*sc*kk; const w=sw_(im,h); x= k==='pol'? ED+ins+16 : W-ED-ins-16-w; yb=y+st.t.off[1]*W+tH+14+h;}
+    else if(pos==='bajo'){h=W*.2*sc*kk; const w=sw_(im,h); x= k==='pol'? ED+ins+16 : W-ED-ins-16-w; yb=titleRect.y+titleRect.h+14+h;}
     else if(pos==='siglas'){h=W*.15*sc*kk; const w=sw_(im,h); x= k==='pol'? scx-tot/2-w-26 : scx+tot/2+26; yb=Math.min(base,by+h*.32);}
     else {h=topH*kk; const w=sw_(im,h); x= k==='pol'? M*.6 : W-M*.6-w; yb=M*.6+h;}
     const w=sw_(im,h); const o=st.sh.off[k]; x+=o[0]*W; yb+=o[1]*W;
@@ -783,6 +795,7 @@ function renderTitleUI(){
   add.innerHTML=`<span style="font:700 19px var(--body)">+</span><small>${FONTS.some(f=>f.id==='custom')?'Cambiar letra':'Agregar letra'}</small>`; add.onclick=()=>$('fFont').click(); fe.appendChild(add);
   segFill($('fx'),EFFECTS,st.t.fx,v=>{st.t.fx=v; save('t',st.t); renderTitleUI(); redraw();});
   segFill($('align'),ALIGNS,st.t.align,v=>{st.t.align=v; st.t.off=[0,0]; save('t',st.t); renderTitleUI(); redraw();});
+  $('subK').value=Math.round((st.t.subK||.45)*100); $('subKV').textContent=Math.round((st.t.subK||.45)*100)+'%';
   $('tSize').value=Math.round(st.t.scale*100); $('tSizeV').textContent=Math.round(st.t.scale*100)+'%'; $('sigFont').checked=st.t.sig;
 }
 /* letra propia del usuario (por ejemplo Designer): se guarda en el celular */
@@ -804,6 +817,8 @@ $('tSize').addEventListener('input',e=>{st.t.scale=e.target.value/100; $('tSizeV
 $('sigFont').onchange=e=>{st.t.sig=e.target.checked; save('t',st.t); redraw();};
 $('bTReset').onclick=()=>{st.t.off=[0,0]; st.t.scale=1; save('t',st.t); renderTitleUI(); redraw();};
 $('tEvento').addEventListener('input',()=>redraw());
+$('tSub2').addEventListener('input',()=>{ $('subF').hidden=!$('tSub2').value.trim(); redraw(); });
+$('subK').addEventListener('input',e=>{ st.t.subK=e.target.value/100; $('subKV').textContent=e.target.value+'%'; save('t',st.t); redraw(); });
 PRESETS.forEach(p=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=p;b.onclick=()=>{$('tEvento').value=p;redraw();};$('chips').appendChild(b);});
 
 function renderSwatches(){ const el=$('sw'); el.innerHTML='';
@@ -1318,7 +1333,7 @@ function renderStkBtns(){ const el=$('stkBtns'); el.innerHTML='';
 
 /* ---------- Mis estilos guardados ---------- */
 function getCfg(){ return {theme:st.theme, customColor:read('customColor'), frame:st.frame, bgm:st.bgm, inset:st.inset, fit:st.fit, scrim:st.scrim, fmt:st.fmt,
-  t:{font:st.t.font,fx:st.t.fx,align:st.t.align,scale:st.t.scale,sig:st.t.sig}, sh:{pos:st.sh.pos,scale:st.sh.scale,k:{...st.sh.k}}, sg:{scale:st.sg.scale}}; }
+  t:{font:st.t.font,fx:st.t.fx,align:st.t.align,scale:st.t.scale,sig:st.t.sig,subK:st.t.subK||.45}, sh:{pos:st.sh.pos,scale:st.sh.scale,k:{...st.sh.k}}, sg:{scale:st.sg.scale}}; }
 async function applyCfg(c){
   if(c.customColor) setCustom(c.customColor);
   st.theme= THEMES.some(x=>x.id===c.theme)? c.theme : st.theme; st.frame=c.frame; st.bgm=c.bgm; st.inset=c.inset; st.fit=c.fit; st.scrim=c.scrim; st.fmt=FORMATS[c.fmt]?c.fmt:st.fmt;
