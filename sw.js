@@ -1,6 +1,6 @@
 // ENFOQUE · Desarrollado por MLF · Secretaría Académica DCFyCCCO
 // Al publicar una versión nueva, cambiá VERSION (igual que app-version en index.html).
-const VERSION = '1.17.0';
+const VERSION = '1.18.1';
 const CACHE = 'enfoque-' + VERSION;
 const FILES = ['./', 'index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'logo-e.png'];
 

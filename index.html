@@ -14,7 +14,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ENFOQUE">
-<meta name="app-version" content="1.17.0">
+<meta name="app-version" content="1.18.1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,100..125,400..900;1,100..125,700..900&family=Exo+2:ital,wght@0,400..700;1,900&family=Anton&family=Bebas+Neue&family=Russo+One&family=Bungee&family=Montserrat:ital,wght@1,900&family=Orbitron:wght@900&family=Kanit:ital,wght@1,800&family=Teko:wght@700&family=Black+Ops+One&family=Righteous&family=Krona+One&family=Audiowide&family=Zen+Dots&family=Oswald:wght@700&family=Staatliches&family=Passion+One:wght@900&family=Bowlby+One+SC&family=Alfa+Slab+One&family=Squada+One&family=Chakra+Petch:ital,wght@1,700&family=Saira+Stencil+One&family=Rubik+Mono+One&family=Racing+Sans+One&family=Titan+One&family=Sigmar+One&family=Bangers&family=Luckiest+Guy&family=Permanent+Marker&family=Fredoka:wght@700&family=Monoton&family=Lobster&family=Pacifico&family=Cinzel:wght@900&family=Playfair+Display:ital,wght@1,500;1,900&family=Abril+Fatface&family=Great+Vibes&family=Outfit:wght@200;300;400&family=Comfortaa:wght@400&display=swap">
 <style>
@@ -191,7 +191,7 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
 <header class="top">
   <div class="brand"><svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Logo de ENFOQUE"><defs><linearGradient id="lgE" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="100" y2="100"><stop offset="0" stop-color="#7cc8ff"/><stop offset="1" stop-color="#2ee6d6"/></linearGradient></defs><g class="spin" stroke="url(#lgE)" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28V10h18M72 10h18v18M90 72v18H72M28 90H10V72"/></g><g stroke="url(#lgE)" stroke-width="4.2" stroke-linecap="round" fill="none"><path d="M38 32v36M38 32h24M38 50h18M38 68h24"/></g></svg>
     <div class="bname"><b>ENFOQUE</b><span class="sub">Collage y Minutas</span><p class="dev">desarrollado por <span class="who">Melina Ailén La Fuente</span><br>Secretaría Académica · DCFyCCCO</p></div></div>
-  <div class="topR"><button class="inst" id="bInst" type="button" hidden>Instalar app</button><span class="ver">v1.17</span></div>
+  <div class="topR"><button class="inst" id="bInst" type="button" hidden>Instalar app</button><span class="ver">v1.18.1</span></div>
 </header>
 
 <nav class="mode" id="mode" aria-label="Secciones">
@@ -232,6 +232,8 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
       <div class="field"><label for="tSub2">Segunda línea, más chica (opcional)</label><input id="tSub2" type="text" maxlength="80" autocomplete="off"></div>
       <div class="pbox" id="placaF" hidden>
         <p class="note" style="margin:0 0 4px">En la placa, la primera palabra del título va en blanco y el resto en el color elegido. La segunda línea va en una cinta.</p>
+        <label class="tog"><input id="pShowHdr" type="checkbox" checked> Mostrar «Departamento Centro de Formación y Capacitación Cutral-Có» arriba</label>
+        <label class="tog"><input id="pShowDepF" type="checkbox" checked> Mostrarlo también en la etiqueta de abajo</label>
         <div class="field"><label for="pHdr1">Encabezado (quién organiza)</label><input id="pHdr1" type="text" maxlength="90" autocomplete="off"></div>
         <div class="field"><label for="pHdr2">Área o sección (opcional)</label><input id="pHdr2" type="text" maxlength="60" autocomplete="off"></div>
         <div class="field"><label for="pInt">Intervinientes (uno por renglón, opcional)</label><textarea id="pInt" rows="3"></textarea></div>
@@ -246,7 +248,10 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
       <div class="field"><label for="tSize">Tamaño del título <b id="tSizeV" style="color:var(--fg)">100%</b></label><input id="tSize" type="range" min="40" max="250" step="5" value="100"></div>
       <div class="field" id="subF" hidden><label for="subK">Tamaño de la segunda línea <b id="subKV" style="color:var(--fg)">45%</b> del título</label><input id="subK" type="range" min="20" max="90" step="5" value="45"></div>
       <label class="tog"><input id="dateOn" type="checkbox"> Agregar la fecha debajo del título</label>
-      <div class="field" id="dateF" hidden><label for="dateV">Fecha</label><input id="dateV" type="date" style="width:100%;background:var(--field);border:1px solid var(--line);color:var(--fg);font:600 15px var(--body);padding:10px 12px;border-radius:12px"></div>
+      <div class="field" id="dateF" hidden><label for="dateV">Fecha</label><input id="dateV" type="date" style="width:100%;background:var(--field);border:1px solid var(--line);color:var(--fg);font:600 15px var(--body);padding:10px 12px;border-radius:12px">
+        <div class="field"><span class="lbl">Cómo se ve la fecha</span><div class="seg" id="dateFmt" style="--n:2"></div></div>
+        <label class="tog"><input id="timeOn" type="checkbox"> Agregar la hora (opcional)</label>
+        <div class="field" id="timeF" hidden><label for="timeV">Hora</label><input id="timeV" type="time" style="width:100%;background:var(--field);border:1px solid var(--line);color:var(--fg);font:600 15px var(--body);padding:10px 12px;border-radius:12px"></div></div>
       <div class="field"><label for="credit">Foto de (opcional)</label><input id="credit" type="text" maxlength="40" autocomplete="off"></div>
       <label class="tog"><input id="sigFont" type="checkbox"> Usar esta misma letra en «DCFyCCCO»</label>
       <div class="row" style="margin-top:12px"><button class="btn" id="bTReset" type="button">Volver a poner el título en su lugar</button></div>
@@ -261,12 +266,18 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
         <div class="field"><span class="lbl">Dibujo</span><div class="seg" id="plDeco" style="--n:2"></div>
           <div class="field"><span class="lbl">Dónde va el dibujo</span><div class="seg" id="plDecoPos" style="--n:2"></div></div>
           <div class="field"><label for="plDecoK">Intensidad del dibujo de fondo y de la foto de fondo <b id="plDecoKV" style="color:var(--fg)">35%</b></label><input id="plDecoK" type="range" min="10" max="80" step="5" value="35"></div></div>
+        <div class="field"><span class="lbl">Fondo de la placa</span><div class="seg" id="plBgStyle" style="--n:2"></div>
+          <label class="tog"><input id="plBlurTop" type="checkbox" checked> Foto del evento desenfocada arriba</label></div>
         <div class="field"><span class="lbl">Foto real de fondo (como el nadador de la placa de natación)</span>
           <div class="bglib" id="plBgs"></div>
           <div class="row" style="margin-top:8px"><button class="btn" id="bPlBg" type="button">Subir foto de fondo</button><button class="btn" id="bPlBgUse" type="button">Usar la 1.ª foto del collage</button><button class="btn" id="bPlBgX" type="button" hidden>Sin foto de fondo</button></div>
           <input id="fPlBg" type="file" accept="image/*" hidden>
           <div class="field"><span class="lbl">Efecto de la foto de fondo</span><div class="seg" id="plBgFx" style="--n:4"></div></div>
-          <div class="field"><span class="lbl">Ocupa</span><div class="seg" id="plBgPos" style="--n:2"></div></div>
+          <div class="field"><span class="lbl">Ocupa</span><div class="seg" id="plBgPos" style="--n:3"></div></div>
+          <div class="field"><span class="lbl">Quitar el fondo de la foto elegida</span>
+            <p class="note" style="margin:0 0 8px">Funciona mejor con fondos parejos (cielo, pared, piso). Queda recortada y va adelante: la movés y la agrandás con los dedos.</p>
+            <label for="qfTol">Fuerza del recorte <b id="qfTolV" style="color:var(--fg)">35</b></label><input id="qfTol" type="range" min="10" max="90" step="5" value="35">
+            <div class="row" style="margin-top:8px"><button class="btn" id="bQuitarFondo" type="button">Quitar el fondo</button></div><p class="note" id="qfMsg" hidden></p></div>
           <p class="note">Las fotos de fondo quedan guardadas en «Mis fondos» de este celular para usarlas cuando quieras.</p></div>
         <div class="field"><span class="lbl">Encabezado</span><div class="seg" id="plHdr" style="--n:3"></div></div>
         <div class="field"><span class="lbl">Título</span><div class="seg" id="plTit" style="--n:2"></div></div>
@@ -403,7 +414,7 @@ input[type=range]{width:100%;accent-color:var(--accent2)}
     <div id="mList" class="mlist"></div>
   </div>
 </section>
-<p class="credit">ENFOQUE v1.17 · Desarrollado por MLF · Secretaría Académica DCFyCCCO</p>
+<p class="credit">ENFOQUE v1.18.1 · Desarrollado por MLF · Secretaría Académica DCFyCCCO</p>
 
 <div class="sheet" id="sheet" hidden>
   <div class="box">
@@ -517,7 +528,7 @@ const L = {"1": [[[0, 0, 1, 1]], [[0.1, 0, 0.8, 1]], [[0, 0.1, 1, 0.8]]], "2": [
 /* ---------- Estado ---------- */
 const st = {mode:'foto', theme:'celeste', fmt:'sq', variant:0, frame:'tarjeta', media:[],
   t:{font:'archivo', fx:'degrade', align:'left', scale:1, off:[0,0], sig:false, subK:.45},
-  sh:{pos:'abajo', scale:1, off:{pol:[0,0], dcf:[0,0]}, k:{pol:1,dcf:1}}, sg:{scale:1, off:[0,0]}, tpl:'collage', pl:{hdr:'centro',tit:'dostonos',rib:'blanca',ph:'diagonal',foot:'clasica',deco:'ninguno',decoK:.35,decoPos:'adelante',off:{},k:{},bgId:null,bgFx:'natural',bgPos:'arriba'}, scrim:false, bgm:'none', inset:0, fit:false, show:{pol:true,dcf:true}, dur:10, snd:false, anim:true, view:'collage', vstyle:'grid', pf:{b:100,c:100,s:100,bw:false}, dateOn:false, credit:'', stk:[], mus:{id:'competencia', vol:.8, buf:null, name:'', start:0}};
+  sh:{pos:'abajo', scale:1, off:{pol:[0,0], dcf:[0,0]}, k:{pol:1,dcf:1}}, sg:{scale:1, off:[0,0]}, dateFmt:'dm', timeOn:false, tpl:'collage', pl:{hdr:'centro',tit:'dostonos',rib:'blanca',ph:'diagonal',foot:'clasica',deco:'ninguno',decoK:.35,decoPos:'adelante',bgStyle:'luces',blurTop:true,off:{},k:{},bgId:null,bgFx:'natural',bgPos:'arriba'}, scrim:false, bgm:'none', inset:0, fit:false, show:{pol:true,dcf:true}, dur:10, snd:false, anim:true, view:'collage', vstyle:'grid', pf:{b:100,c:100,s:100,bw:false}, dateOn:false, credit:'', stk:[], mus:{id:'competencia', vol:.8, buf:null, name:'', start:0}};
 let cells=[], stkRects=[], shRects=[], titleRect={x:0,y:0,w:0,h:0}, sgRect={x:0,y:0,w:0,h:0}, recording=false;
 
 function load(src){return new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src;});}
@@ -696,7 +707,7 @@ function draw(tm){
   // fecha debajo del título
   if(st.dateOn){ const fs=Math.round(W*.03*Math.max(.8,Math.min(1.4,st.t.scale))); ctx.save(); ctx.font=`700 ${fs}px Archivo${FB}`; ctx.letterSpacing='3px';
     const a=st.t.align; ctx.textAlign=a; const fx_= a==='left'? titleRect.x : a==='center'? titleRect.x+titleRect.w/2 : titleRect.x+titleRect.w;
-    ctx.shadowColor='#000d'; ctx.shadowBlur=12; ctx.shadowOffsetY=3; ctx.fillStyle='#ffffff'; ctx.fillText(fechaLarga($('dateV').value).toUpperCase(), fx_, titleRect.y+titleRect.h+fs*1.1); ctx.restore(); }
+    ctx.shadowColor='#000d'; ctx.shadowBlur=12; ctx.shadowOffsetY=3; ctx.fillStyle='#ffffff'; ctx.fillText((fmtFecha($('dateV').value, st.dateFmt==='cal'?'larga_y':st.dateFmt)+(st.timeOn?' · '+fmtHora():'')).toUpperCase(), fx_, titleRect.y+titleRect.h+fs*1.1); ctx.restore(); }
   // crédito del fotógrafo
   if(st.credit){ ctx.save(); ctx.font=`500 ${Math.round(W*.019)}px Archivo${FB}`; ctx.textAlign='center'; ctx.shadowColor='#000d'; ctx.shadowBlur=8; ctx.fillStyle='#ffffffd9'; ctx.fillText('Foto: '+st.credit, W/2, H-Math.max(ED,10)-2); ctx.restore(); }
 
@@ -902,7 +913,9 @@ function renderPl(){ const V=st.pl; const on=(k,v)=>{ st.pl[k]=v; save('pl',st.p
     b.setAttribute('aria-pressed',Object.entries(s.v).every(([kk,vv])=>V[kk]===vv)); b.onclick=()=>{ Object.assign(st.pl,s.v); save('pl',st.pl); renderPl(); redraw(); }; el.appendChild(b); });
   segFill($('plDecoPos'),[['adelante','Adelante (se mueve y agranda)'],['atras','Atrás, como fondo']],V.decoPos||'adelante',v=>{ st.pl.decoPos=v; save('pl',st.pl); renderPl(); redraw(); });
   segFill($('plBgFx'),[['natural','Natural'],['tenido','Teñida'],['byn','Blanco y negro'],['suave','Desenfocada']],V.bgFx||'natural',v=>{ st.pl.bgFx=v; save('pl',st.pl); renderPl(); redraw(); });
-  segFill($('plBgPos'),[['arriba','Arriba, se funde'],['todo','Todo el fondo']],V.bgPos||'arriba',v=>{ st.pl.bgPos=v; save('pl',st.pl); renderPl(); redraw(); });
+  segFill($('plBgStyle'),PL_BG,V.bgStyle||'luces',v=>{ st.pl.bgStyle=v; save('pl',st.pl); renderPl(); redraw(); }); $('plBlurTop').checked=V.blurTop!==false;
+  segFill($('plBgPos'),[['arriba','Arriba, se funde'],['todo','Todo el fondo'],['adelante','Adelante, recortada']],V.bgPos||'arriba',v=>{ st.pl.bgPos=v; save('pl',st.pl); renderPl(); redraw(); });
+  $('pShowHdr').checked=V.showHdr!==false; $('pShowDepF').checked=V.showDepF!==false; $('pHdr1').disabled=V.showHdr===false;
   $('plDecoK').value=Math.round(V.decoK*100); $('plDecoKV').textContent=Math.round(V.decoK*100)+'%'; $('bPlBgX').hidden=!plBgImg; renderBgLib(); }
 $('plDecoK').addEventListener('input',e=>{ st.pl.decoK=e.target.value/100; $('plDecoKV').textContent=e.target.value+'%'; save('pl',st.pl); redraw(); });
 $('bPlBg').onclick=()=>$('fPlBg').click();
@@ -920,6 +933,15 @@ $('fPlBg').onchange=async e=>{ const f=e.target.files[0]; e.target.value=''; if(
   await addFondo(toDataURLmax(im,1400), f.name.replace(/\.[a-z0-9]+$/i,'')); await renderBgLib(true); };
 $('bPlBgUse').onclick=async()=>{ const m=st.media[0]; if(!m) return; await addFondo(toDataURLmax(m.el,1400),'Foto del collage'); await renderBgLib(true); };
 $('bPlBgX').onclick=()=>selFondo(null);
+$('pShowHdr').onchange=e=>{ st.pl.showHdr=e.target.checked; $('pHdr1').disabled=!e.target.checked; save('pl',st.pl); redraw(); };
+$('pShowDepF').onchange=e=>{ st.pl.showDepF=e.target.checked; save('pl',st.pl); redraw(); };
+$('plBlurTop').onchange=e=>{ st.pl.blurTop=e.target.checked; save('pl',st.pl); redraw(); };
+$('qfTol').addEventListener('input',e=>$('qfTolV').textContent=e.target.value);
+$('bQuitarFondo').onclick=async()=>{ const m=$('qfMsg'); m.hidden=false; if(!plBgImg){ m.textContent='Primero elegí o subí una foto de fondo.'; return; }
+  m.textContent='Recortando…'; await new Promise(r=>setTimeout(r,30));
+  try{ const data=quitarFondo(plBgImg,+$('qfTol').value); const r=bgLibCache&&bgLibCache.find(x=>x.id===st.pl.bgId); await addFondo(data,((r&&r.name)||'Foto')+' (recortada)'); st.pl.bgPos='adelante'; save('pl',st.pl); await renderBgLib(true); renderPl(); redraw();
+    m.textContent='Listo: quedó recortada y adelante. Si se comió parte de la persona, bajá la fuerza y probá de nuevo con la foto original.'; }
+  catch(e){ m.textContent='No se pudo recortar esta foto.'; } };
 function setTpl(v){ st.tpl=v; save('tpl',v); if(v==='placa'){ if(st.fmt==='sq'){ st.fmt='pt'; save('fmt','pt'); } if(!st.dateOn){ st.dateOn=true; $('dateOn').checked=true; $('dateF').hidden=false; } }
   syncTpl(); syncUI(); tCache={}; bgKey=''; redraw(); }
 document.querySelectorAll('#tpl button').forEach(b=>b.onclick=()=>setTpl(b.dataset.p));
@@ -1352,6 +1374,9 @@ const MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','
 function fechaLarga(iso){ const [y,m,d]=(iso||hoyISO()).split('-').map(Number); return d+' de '+MESES[m-1]+' de '+y; }
 $('dateV').value=hoyISO();
 $('dateOn').onchange=e=>{st.dateOn=e.target.checked; $('dateF').hidden=!st.dateOn; redraw();};
+function renderDateFmt(){ segFill($('dateFmt'),DATE_FMTS,st.dateFmt,v=>{ st.dateFmt=v; save('dateFmt',v); renderDateFmt(); redraw(); }); }
+$('timeOn').onchange=e=>{ st.timeOn=e.target.checked; $('timeF').hidden=!st.timeOn; if(st.timeOn && !$('timeV').value) $('timeV').value=ahoraHM(); redraw(); };
+$('timeV').addEventListener('input',()=>redraw());
 $('dateV').addEventListener('input',()=>redraw());
 $('credit').addEventListener('input',e=>{st.credit=e.target.value.trim(); redraw();});
 
@@ -1456,6 +1481,63 @@ async function renderHist(){
 /* ---------- Compartir directo ---------- */
 $('bShare').onclick=async()=>{ if(!lastBlob) return; const f=new File([lastBlob],lastName,{type:lastBlob.type||'image/png'});
   try{ await navigator.share({files:[f], title:$('tEvento').value.trim()||'Collage DCFyCCCO'}); }catch(e){} };
+
+/* ---------- Fondos de la placa ---------- */
+const PL_BG=[['luces','Degradé con luces'],['liso','Liso, un color'],['oscuro','Sin fondo (negro)'],['puntos','Puntos'],['diagonales','Líneas diagonales'],['cuadricula','Cuadrícula'],
+  ['hexagonos','Hexágonos'],['ondas','Ondas'],['bokeh','Luces desenfocadas'],['rayos','Rayos de sol'],['carbono','Fibra de carbono'],['celeste','Celeste y blanco'],['circuito','Tecnológico'],['espiga','Escamas']];
+let bgPatC=null, bgPatKey='';
+function rnd(seed){ let s=seed; return ()=>{ s=(s*16807)%2147483647; return (s-1)/2147483646; }; }
+function plPattern(style,W,H,T,u){
+  const key=[style,T.id,W,H].join('|'); if(bgPatKey===key&&bgPatC) return bgPatC;
+  const c=document.createElement('canvas'); c.width=W; c.height=H; const x=c.getContext('2d'); const A=T.g[0];
+  const fadeMask=()=>{ x.globalCompositeOperation='destination-in'; const m=x.createLinearGradient(0,0,0,H); m.addColorStop(0,'#000'); m.addColorStop(.6,'#000c'); m.addColorStop(1,'#0003'); x.fillStyle=m; x.fillRect(0,0,W,H); x.globalCompositeOperation='source-over'; };
+  if(style==='puntos'){ x.fillStyle=hexA(A,.28); const s=26*u; for(let yy=s/2;yy<H;yy+=s) for(let xx=s/2;xx<W;xx+=s){ x.beginPath(); x.arc(xx,yy,2.3*u,0,7); x.fill(); } fadeMask(); }
+  else if(style==='diagonales'){ x.strokeStyle=hexA(A,.16); x.lineWidth=1.6*u; const s=22*u; for(let k=-H;k<W;k+=s){ x.beginPath(); x.moveTo(k,0); x.lineTo(k+H,H); x.stroke(); } fadeMask(); }
+  else if(style==='cuadricula'){ const s=48*u; for(let xx=0;xx<W;xx+=s){ x.strokeStyle=hexA(A,(Math.round(xx/s)%4===0)?.22:.09); x.lineWidth=1.2*u; x.beginPath(); x.moveTo(xx,0); x.lineTo(xx,H); x.stroke(); }
+    for(let yy=0;yy<H;yy+=s){ x.strokeStyle=hexA(A,(Math.round(yy/s)%4===0)?.22:.09); x.beginPath(); x.moveTo(0,yy); x.lineTo(W,yy); x.stroke(); } fadeMask(); }
+  else if(style==='hexagonos'){ const r=30*u, hw=Math.sqrt(3)*r; x.strokeStyle=hexA(A,.2); x.lineWidth=1.4*u;
+    for(let row=0, yy=0; yy<H+r; row++, yy+=r*1.5) for(let xx=(row%2?hw/2:0); xx<W+hw; xx+=hw){ x.beginPath(); for(let i=0;i<6;i++){ const an=Math.PI/6+i*Math.PI/3; const px=xx+Math.cos(an)*r, py=yy+Math.sin(an)*r; i?x.lineTo(px,py):x.moveTo(px,py);} x.closePath(); x.stroke(); } fadeMask(); }
+  else if(style==='ondas'){ for(let k=0;k<26;k++){ const y0=H*.02+k*H*.04; x.strokeStyle=hexA(k%3?A:T.g[1],.14+.08*(k%3===0)); x.lineWidth=(k%3?1.2:2.2)*u; x.beginPath(); for(let xx=0;xx<=W;xx+=8*u){ const yy=y0+Math.sin(xx/W*Math.PI*3+k*.5)*22*u; xx?x.lineTo(xx,yy):x.moveTo(xx,yy);} x.stroke(); } fadeMask(); }
+  else if(style==='bokeh'){ const R=rnd(7); for(let i=0;i<42;i++){ const cx=R()*W, cy=R()*H*.9, r=(20+R()*90)*u, col= R()<.6? A : (R()<.5? T.g[1] : '#ffffff'); const g=x.createRadialGradient(cx,cy,0,cx,cy,r); g.addColorStop(0,hexA(col,.22+R()*.18)); g.addColorStop(.7,hexA(col,.1)); g.addColorStop(1,hexA(col,0)); x.fillStyle=g; x.beginPath(); x.arc(cx,cy,r,0,7); x.fill(); } }
+  else if(style==='rayos'){ const cx=W/2, cy=-H*.05; for(let i=0;i<36;i++){ if(i%2) continue; const a0=i*Math.PI*2/36, a1=(i+1)*Math.PI*2/36; x.fillStyle=hexA(A,.1); x.beginPath(); x.moveTo(cx,cy); x.lineTo(cx+Math.cos(a0)*H*2,cy+Math.sin(a0)*H*2); x.lineTo(cx+Math.cos(a1)*H*2,cy+Math.sin(a1)*H*2); x.fill(); }
+    const g=x.createRadialGradient(cx,cy,0,cx,cy,H*.7); g.addColorStop(0,hexA(T.g[1],.35)); g.addColorStop(1,hexA(T.g[1],0)); x.fillStyle=g; x.fillRect(0,0,W,H); fadeMask(); }
+  else if(style==='carbono'){ const s=12*u; for(let yy=0;yy<H;yy+=s) for(let xx=0;xx<W;xx+=s){ const odd=((xx/s|0)+(yy/s|0))%2; const g= odd? x.createLinearGradient(xx,yy,xx+s,yy) : x.createLinearGradient(xx,yy,xx,yy+s); g.addColorStop(0,'#ffffff10'); g.addColorStop(.5,'#ffffff22'); g.addColorStop(1,'#00000030'); x.fillStyle=g; x.fillRect(xx,yy,s,s); } }
+  else if(style==='celeste'){ ['#74acdf','#ffffff','#74acdf','#ffffff','#74acdf'].forEach((col,i)=>{ x.fillStyle=hexA(col,.1); x.beginPath(); const o=i*H*.13-H*.1; x.moveTo(0,o); x.bezierCurveTo(W*.35,o-H*.08,W*.65,o+H*.12,W,o+H*.02); x.lineTo(W,o+H*.1); x.bezierCurveTo(W*.65,o+H*.2,W*.35,o,0,o+H*.08); x.fill(); }); }
+  else if(style==='circuito'){ const R=rnd(11); x.strokeStyle=hexA(A,.28); x.fillStyle=hexA(A,.4); x.lineWidth=1.6*u;
+    for(let i=0;i<70;i++){ let px=Math.round(R()*W/(24*u))*24*u, py=Math.round(R()*H/(24*u))*24*u; x.beginPath(); x.moveTo(px,py); for(let k=0;k<3;k++){ const d=(R()*4|0), L=(2+R()*5|0)*24*u; if(d===0) px+=L; else if(d===1) py+=L; else if(d===2){ px+=L; py+=L; } else py-=L; x.lineTo(px,py); } x.stroke(); x.beginPath(); x.arc(px,py,3.5*u,0,7); x.fill(); } fadeMask(); }
+  else if(style==='espiga'){ const s=34*u; x.strokeStyle=hexA(A,.16); x.lineWidth=1.4*u; for(let yy=0;yy<H+s;yy+=s/2) for(let xx=0;xx<W+s;xx+=s){ const o=((yy/(s/2))|0)%2? s/2:0; x.beginPath(); x.arc(xx+o,yy,s/2,0,Math.PI); x.stroke(); } fadeMask(); }
+  bgPatC=c; bgPatKey=key; return c;
+}
+
+/* ---------- Quitar el fondo de una foto (fondos lisos: cielo, pared, piso) ---------- */
+function quitarFondo(img,tol){
+  const [w0,h0]=dims(img); const s=Math.min(1,1000/Math.max(w0,h0)); const W=Math.round(w0*s), H=Math.round(h0*s);
+  const c=document.createElement('canvas'); c.width=W; c.height=H; const x=c.getContext('2d'); x.drawImage(img,0,0,W,H);
+  const d=x.getImageData(0,0,W,H), p=d.data, N=W*H, bg=new Uint8Array(N), q=new Int32Array(N); let qh=0, qt=0;
+  const diff=(i,j)=>{ const a=i*4,b=j*4; return Math.abs(p[a]-p[b])+Math.abs(p[a+1]-p[b+1])+Math.abs(p[a+2]-p[b+2]); };
+  const seeds=[]; for(let xx=0;xx<W;xx++){ seeds.push(xx, (H-1)*W+xx); } for(let yy=0;yy<H;yy++){ seeds.push(yy*W, yy*W+W-1); }
+  const ref=seeds.map(i=>i); const T3=tol*3;
+  for(const i of seeds){ if(!bg[i]){ bg[i]=1; q[qt++]=i; } }
+  const orig=new Int32Array(N).fill(-1); for(const i of seeds) orig[i]=i;
+  while(qh<qt){ const i=q[qh++]; const xx=i%W, yy=(i/W)|0; const o=orig[i];
+    for(const j of [xx>0?i-1:-1, xx<W-1?i+1:-1, yy>0?i-W:-1, yy<H-1?i+W:-1]){ if(j<0||bg[j]) continue; if(diff(i,j)<tol*1.2 && diff(o,j)<T3){ bg[j]=1; orig[j]=o; q[qt++]=j; } } }
+  for(let i=0;i<N;i++) if(bg[i]) p[i*4+3]=0;
+  // suavizar el borde
+  for(let i=0;i<N;i++){ if(bg[i]) continue; const xx=i%W, yy=(i/W)|0; let n=0; for(const j of [i-1,i+1,i-W,i+W]){ if(j>=0&&j<N&&bg[j]) n++; } if(n) p[i*4+3]=Math.round(255*(1-n*.2)); }
+  x.putImageData(d,0,0);
+  const bb=bboxAlpha(p,W,H); const out=document.createElement('canvas'); out.width=bb.w; out.height=bb.h; out.getContext('2d').drawImage(c,bb.x,bb.y,bb.w,bb.h,0,0,bb.w,bb.h);
+  return out.toDataURL('image/png');
+}
+function bboxAlpha(p,W,H){ let x0=W,y0=H,x1=0,y1=0; for(let yy=0;yy<H;yy++) for(let xx=0;xx<W;xx++){ if(p[(yy*W+xx)*4+3]>20){ if(xx<x0)x0=xx; if(xx>x1)x1=xx; if(yy<y0)y0=yy; if(yy>y1)y1=yy; } } if(x1<x0) return {x:0,y:0,w:W,h:H}; return {x:x0,y:y0,w:x1-x0+1,h:y1-y0+1}; }
+
+/* ---------- Formatos de fecha y hora ---------- */
+const DIAS=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+const DATE_FMTS=[['dm','26/10'],['dmy','26/10/2026'],['larga','26 de octubre'],['larga_y','26 de octubre de 2026'],['dia','Lunes 26 de octubre'],['corta','26 OCT 2026'],['cal','Hoja de calendario']];
+function fmtFecha(iso,f){ const [y,m,d]=(iso||hoyISO()).split('-').map(Number); const dt=new Date(y,m-1,d); const dd=String(d).padStart(2,'0'), mm=String(m).padStart(2,'0');
+  if(f==='dmy') return dd+'/'+mm+'/'+y; if(f==='larga') return d+' de '+MESES[m-1]; if(f==='larga_y') return d+' de '+MESES[m-1]+' de '+y;
+  if(f==='dia'){ const s=DIAS[dt.getDay()]+' '+d+' de '+MESES[m-1]; return s[0].toUpperCase()+s.slice(1); }
+  if(f==='corta') return dd+' '+MESES[m-1].slice(0,3).toUpperCase()+' '+y; return dd+'/'+mm; }
+function fmtHora(){ return ($('timeV').value||ahoraHM())+' hs'; }
 
 /* ---------- Placa institucional (estilo afiche) con muchas variantes ---------- */
 const HDR1_DEF='DEPARTAMENTO CENTRO DE FORMACIÓN Y CAPACITACIÓN CUTRAL-CÓ';
@@ -1724,18 +1806,22 @@ function drawPlaca(tm){
   const [W,H]=FORMATS[st.fmt]; if(cv.width!==W||cv.height!==H){cv.width=W;cv.height=H;}
   const T=THEMES.find(t=>t.id===st.theme), P=st.media, u=Math.min(W/1080,H/1350), PAD=44*u, D=st.dur, V=st.pl;
   // fondo
-  let g=ctx.createLinearGradient(0,0,0,H); g.addColorStop(0,T.bg[1]); g.addColorStop(.55,T.bg[0]); g.addColorStop(1,'#02060c'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+  const BS=V.bgStyle||'luces'; let g;
+  if(BS==='oscuro'){ ctx.fillStyle='#04060a'; ctx.fillRect(0,0,W,H); }
+  else if(BS==='liso'){ ctx.fillStyle=T.bg[0]; ctx.fillRect(0,0,W,H); }
+  else { g=ctx.createLinearGradient(0,0,0,H); g.addColorStop(0,T.bg[1]); g.addColorStop(.55,T.bg[0]); g.addColorStop(1,'#02060c'); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); }
   ppRects=[];
-  if(plBgImg){ const bc=plBgCanvas(W,H,T); ctx.save(); ctx.globalAlpha=Math.min(1,.25+V.decoK); ctx.drawImage(bc,0,0); ctx.restore();
+  if(plBgImg && V.bgPos!=='adelante'){ const bc=plBgCanvas(W,H,T); ctx.save(); ctx.globalAlpha=Math.min(1,.25+V.decoK); ctx.drawImage(bc,0,0); ctx.restore();
     if(V.bgPos==='todo'){ g=ctx.createLinearGradient(0,0,0,H); g.addColorStop(0,hexA(T.bg[0],.25)); g.addColorStop(.5,hexA(T.bg[0],.45)); g.addColorStop(1,hexA('#02060c',.85)); ctx.fillStyle=g; ctx.fillRect(0,0,W,H); }
     else { g=ctx.createLinearGradient(0,H*.2,0,H*.55); g.addColorStop(0,hexA(T.bg[0],0)); g.addColorStop(1,T.bg[0]); ctx.fillStyle=g; ctx.fillRect(0,H*.2,W,H*.35+1); } }
-  else if(P[0] && dims(P[0].el)[0]){ const sm=document.createElement('canvas'); sm.width=48; sm.height=Math.round(48*H*.4/W); cover(sm.getContext('2d'),P[0].el,0,0,sm.width,sm.height,.5,.5);
+  else if(V.blurTop!==false && BS!=='oscuro' && BS!=='liso' && P[0] && dims(P[0].el)[0]){ const sm=document.createElement('canvas'); sm.width=48; sm.height=Math.round(48*H*.4/W); cover(sm.getContext('2d'),P[0].el,0,0,sm.width,sm.height,.5,.5);
     ctx.save(); ctx.globalAlpha=.38; ctx.imageSmoothingQuality='high'; ctx.drawImage(sm,0,0,W,H*.4); ctx.restore();
     g=ctx.createLinearGradient(0,0,0,H*.4); g.addColorStop(0,hexA(T.bg[1],.4)); g.addColorStop(1,T.bg[0]); ctx.fillStyle=g; ctx.fillRect(0,0,W,H*.4); }
-  ctx.save(); ctx.globalCompositeOperation='lighter';
+  if(!['luces','liso','oscuro'].includes(BS)){ const pc=plPattern(BS,W,H,T,u); ctx.drawImage(pc,0,0); ctx.globalAlpha=.75; ctx.drawImage(pc,0,0); ctx.globalAlpha=1; }
+  if(BS==='luces'){ ctx.save(); ctx.globalCompositeOperation='lighter';
   [[.95,.0,.22,.16],[.62,.0,.12,.09],[1.1,.35,.16,.07]].forEach(([x,y,w,a])=>{ const b=ctx.createLinearGradient(W*x,H*y,W*(x-.55),H*(y+.55)); b.addColorStop(0,hexA(T.g[0],a)); b.addColorStop(1,hexA(T.g[0],0)); ctx.fillStyle=b;
     ctx.beginPath(); ctx.moveTo(W*x,H*y); ctx.lineTo(W*(x+w),H*y); ctx.lineTo(W*(x+w-.6),H*(y+.6)); ctx.lineTo(W*(x-.6),H*(y+.6)); ctx.fill(); });
-  ctx.restore();
+  ctx.restore(); }
   if(V.decoPos==='atras') drawDeco(V.deco,W,H,u,T);
 
   // ---------- encabezado
@@ -1743,7 +1829,7 @@ function drawPlaca(tm){
   ppBegin('hdr',W/2,y0,W);
   const showP= V.hdr==='centro'||V.hdr==='banda';
   const dW= imgDcf&&st.show.dcf? dims(imgDcf)[0]*shH/dims(imgDcf)[1] : 0, pH=shH*.9, pW= showP&&imgPol&&st.show.pol? dims(imgPol)[0]*pH/dims(imgPol)[1] : 0;
-  const h1=($('pHdr1').value.trim()||HDR1_DEF).toUpperCase(), h2=$('pHdr2').value.trim().toUpperCase();
+  const h1= V.showHdr===false? '' : ($('pHdr1').value.trim()||HDR1_DEF).toUpperCase(), h2=$('pHdr2').value.trim().toUpperCase();
   if(V.hdr==='banda'){ const bh=shH*.66, by=y0+shH/2-bh/2, bx1=W-PAD-(pW?pW+28*u:0);
     ctx.save(); ctx.shadowColor='#0009'; ctx.shadowBlur=18*u; ctx.fillStyle=accGrad(0,bx1,T); ctx.beginPath(); ctx.moveTo(0,by); ctx.lineTo(bx1,by); ctx.lineTo(bx1-bh*.5,by+bh); ctx.lineTo(0,by+bh); ctx.fill(); ctx.restore(); }
   const drawShield=(im,x,y,w,h)=>{ ctx.save(); ctx.shadowColor='#000c'; ctx.shadowBlur=22*u; ctx.shadowOffsetY=8*u; ctx.drawImage(im,x,y,w,h); ctx.restore(); };
@@ -1817,8 +1903,8 @@ function drawPlaca(tm){
 
   // ---------- recuadros de información
   const intL=$('pInt').value.split('\n').map(s=>s.trim()).filter(Boolean).slice(0,5), detL=$('pDet').value.split('\n').map(s=>s.trim()).filter(Boolean).slice(0,6);
-  const boxes=[]; if(intL.length) boxes.push({k:'int',lab:'INTERVINIENTES:',L:intL}); if(detL.length) boxes.push({k:'det',lab:(($('pDetT').value.trim()||'Detalle').toUpperCase()+':'),L:detL}); if(st.dateOn) boxes.push({k:'fec',lab:'FECHA:'});
-  const lf=24*u, rows=Math.max(2,...boxes.filter(b=>b.L).map(b=>b.L.length)); const infoH= boxes.length? 58*u+rows*lf*1.3+18*u : 0; const infoY=footY-16*u-infoH;
+  const boxes=[]; if(intL.length) boxes.push({k:'int',lab:'INTERVINIENTES:',L:intL}); if(detL.length) boxes.push({k:'det',lab:(($('pDetT').value.trim()||'Detalle').toUpperCase()+':'),L:detL}); if(st.dateOn) boxes.push({k:'fec',lab: st.timeOn?'FECHA Y HORA:':'FECHA:'});
+  const lf=24*u, rows=Math.max((st.dateOn&&st.timeOn)?3:2,...boxes.filter(b=>b.L).map(b=>b.L.length)); const infoH= boxes.length? 58*u+rows*lf*1.3+18*u : 0; const infoY=footY-16*u-infoH;
 
   // ---------- fotos
   const ax=PAD*.45, ay=y, aw=W-PAD*.9, ah=(boxes.length? infoY-16*u : footY-16*u)-y;
@@ -1845,9 +1931,11 @@ function drawPlaca(tm){
     if(P.length){ ctx.save(); ctx.strokeStyle=T.g[0]; ctx.shadowColor=T.g[0]; ctx.shadowBlur=14*u; ctx.lineWidth=2*u; ctx.strokeRect(ax-1,ay-1,aw+2,ah+2); ctx.restore(); } }
 
   // ---------- dibujo adelante: se puede mover y agrandar
+  if(plBgImg && V.bgPos==='adelante'){ const [iw,ih]=dims(plBgImg); const bw=W*.46, bh=H*.36, s=Math.min(bw/iw,bh/ih), w=iw*s, h=ih*s, ax0=W*.78, ay0=H*.2;
+    ppBegin('bgimg',ax0,ay0,W); ctx.save(); ctx.shadowColor='#000b'; ctx.shadowBlur=24*u; ctx.shadowOffsetY=10*u; if(V.bgFx==='byn') ctx.filter='grayscale(1)'; ctx.drawImage(plBgImg,ax0-w/2,ay0-h/2,w,h); ctx.restore(); ppEnd(ax0-w/2,ay0-h/2,w,h); }
   if(V.decoPos!=='atras' && V.deco!=='ninguno'){ decoFront=true; PP_DEF.deco= ['izamiento','bandera'].includes(V.deco)? {o:[.07,.02],k:.62} : {o:[.05,.1],k:.68}; ppBegin('deco',W*.84,H*.2,W); drawDeco(V.deco,W,H,u,T); ppEnd(W*.6,H*.02,W*.4,H*.34); decoFront=false; }
   // ---------- recuadros
-  if(boxes.length){ ppBegin('info',W/2,infoY,W); const gapB=14*u, fw=270*u; const flex=boxes.filter(b=>b.k!=='fec').length; const fixed=boxes.some(b=>b.k==='fec')?fw:0;
+  if(boxes.length){ ppBegin('info',W/2,infoY,W); const gapB=14*u, fw=(['larga_y','dia'].includes(st.dateFmt)?400:['dm','cal'].includes(st.dateFmt)&&!st.timeOn?270:340)*u; const flex=boxes.filter(b=>b.k!=='fec').length; const fixed=boxes.some(b=>b.k==='fec')?fw:0;
     const fwid= flex? (W-2*PAD*.45-fixed-gapB*(boxes.length-1))/flex : 0; let bx=PAD*.45;
     boxes.forEach(b=>{ const w= b.k==='fec'? (flex? fw : W-PAD*.9) : fwid; const x=bx; bx+=w+gapB;
       ctx.save(); rr(x,infoY,w,infoH,16*u); ctx.fillStyle='rgba(3,12,26,.78)'; ctx.fill(); ctx.strokeStyle=hexA(T.ring,.55); ctx.lineWidth=1.6*u; ctx.stroke(); ctx.restore();
@@ -1856,7 +1944,15 @@ function drawPlaca(tm){
       ctx.save(); ctx.font=`italic 900 ${22*u}px Archivo${FB}`; const lw=ctx.measureText(b.lab).width+26*u; rr(tx_,infoY+14*u,lw,32*u,8*u);
       ctx.fillStyle=accGrad(tx_,tx_+lw,T); ctx.fill(); ctx.fillStyle=T.bg[0]; ctx.fillText(b.lab,tx_+13*u,infoY+14*u+24*u); ctx.restore();
       ctx.save(); ctx.fillStyle='#ffffff'; ctx.shadowColor='#000a'; ctx.shadowBlur=6*u;
-      if(b.k==='fec'){ const [yy,mm,dd]=($('dateV').value||hoyISO()).split('-'); let ds=62*u; ctx.font=`900 ${ds}px Archivo${FB}`; while(ds>24*u && ctx.measureText(dd+'/'+mm).width>x+w-tx_-14*u){ ds-=2; ctx.font=`900 ${ds}px Archivo${FB}`; } ctx.fillText(dd+'/'+mm,tx_,infoY+infoH-20*u); }
+      if(b.k==='fec'){ const mxw=x+w-tx_-14*u, iso=$('dateV').value||hoyISO();
+        if(st.dateFmt==='cal'){ const [yy,mm,dd]=iso.split('-').map(Number); const ch=Math.min(infoH-62*u,96*u), cw=ch*.92, cy0=infoY+52*u; ctx.save(); ctx.shadowColor='#000a'; ctx.shadowBlur=8*u; rr(tx_,cy0,cw,ch,10*u); ctx.fillStyle='#ffffff'; ctx.fill(); ctx.restore();
+          ctx.save(); ctx.beginPath(); rr(tx_,cy0,cw,ch,10*u); ctx.clip(); ctx.fillStyle=accGrad(tx_,tx_+cw,T); ctx.fillRect(tx_,cy0,cw,ch*.3); ctx.restore();
+          ctx.save(); ctx.textAlign='center'; ctx.shadowColor='transparent'; ctx.fillStyle=T.bg[0]; ctx.font=`900 ${ch*.2}px Archivo${FB}`; ctx.fillText(MESES[mm-1].slice(0,3).toUpperCase(),tx_+cw/2,cy0+ch*.235); ctx.font=`900 ${ch*.52}px Archivo${FB}`; ctx.fillStyle='#0b1220'; ctx.fillText(String(dd),tx_+cw/2,cy0+ch*.86); ctx.restore();
+          ctx.font=`700 ${22*u}px Archivo${FB}`; const rest=[DIAS[new Date(yy,mm-1,dd).getDay()].toUpperCase(), String(yy)]; if(st.timeOn) rest.push(fmtHora()); rest.forEach((s,j)=>ctx.fillText(s,tx_+cw+14*u,cy0+24*u+j*28*u)); }
+        else { const txt=fmtFecha(iso,st.dateFmt); const big=['dm','dmy','corta'].includes(st.dateFmt); let ds=(big?62:36)*u; ctx.font=`900 ${ds}px Archivo${FB}`; let L=[txt];
+          while(ds>18*u && ctx.measureText(txt).width>mxw){ ds-=2; ctx.font=`900 ${ds}px Archivo${FB}`; if(!big && ds<22*u){ L=wrapF(txt,`900 ${ds}px Archivo${FB}`,mxw); if(L.length<=2 && Math.max(...L.map(l=>ctx.measureText(l).width))<=mxw) break; } }
+          const hasT=st.timeOn; const lastY=infoY+infoH-(hasT?52:20)*u; L.forEach((l,j)=>ctx.fillText(l,tx_,lastY-(L.length-1-j)*ds*1.05));
+          if(hasT){ ctx.font=`700 ${28*u}px Archivo${FB}`; ctx.fillStyle=T.g[1]; ctx.fillText(fmtHora(),tx_,infoY+infoH-18*u); } } }
       else { const mx=x+w-tx_-14*u; let fs=lf; ctx.font=`500 ${fs}px Archivo${FB}`; while(fs>14*u && Math.max(...b.L.map(l=>ctx.measureText((b.k==='det'?'•  ':'')+l).width))>mx){ fs-=1; ctx.font=`500 ${fs}px Archivo${FB}`; }
         b.L.forEach((l,j)=>ctx.fillText((b.k==='det'?'•  ':'')+l,tx_,infoY+58*u+fs*(.95+j*1.3))); }
       ctx.restore(); }); ppEnd(PAD*.45,infoY,W-PAD*.9,infoH); }
@@ -1874,6 +1970,7 @@ function dcfMark(x,by,s,T,dark){ const parts=[['DCF',s],['y',s*.72],['CCCO',s]];
 function markW(s){ let w=0; [['DCF',s],['y',s*.72],['CCCO',s]].forEach(([t_,z])=>{ ctx.font=`italic 900 ${z}px Archivo${FB}`; w+=ctx.measureText(t_).width+2*(s/50); }); return w; }
 function smallText(t,x,y,s,col,ls,align){ ctx.save(); ctx.font=`700 ${s}px Archivo${FB}`; ctx.letterSpacing=ls+'px'; ctx.fillStyle=col; ctx.textAlign=align||'left'; ctx.fillText(t,x,y); ctx.restore(); }
 function drawFooter(kind,W,H,u,T,PAD,footY,footH){
+  const depF= st.pl.showDepF!==false;
   const TAG='LA EXCELENCIA COMIENZA CON LA FORMACIÓN', DEP1='DEPARTAMENTO CENTRO DE FORMACIÓN', DEP2='Y CAPACITACIÓN CUTRAL-CÓ';
   const sh=(im,h)=>im? [dims(im)[0]*h/dims(im)[1],h] : [0,h];
   const band=(c0,c1)=>{ const g=ctx.createLinearGradient(0,footY,0,H); g.addColorStop(0,c0); g.addColorStop(1,c1); ctx.fillStyle=g; ctx.fillRect(0,footY,W,footH); };
@@ -1885,21 +1982,21 @@ function drawFooter(kind,W,H,u,T,PAD,footY,footH){
     const fcy=footY+(footH+36*u)/2;
     if(kind==='clasica'){
       const [dw,dh]=sh(imgDcf,86*u); if(imgDcf) ctx.drawImage(imgDcf,PAD,fcy-dh/2,dw,dh);
-      const tx=PAD+dw+16*u, by=fcy+4*u; dcfMark(tx,by,50*u,T,false); smallText(DEP1,tx,by+22*u,12.5*u,'#c9d9ea',1.2*u); smallText(DEP2,tx,by+39*u,12.5*u,'#c9d9ea',1.2*u);
+      const tx=PAD+dw+16*u, by=fcy+4*u; dcfMark(tx,by,50*u,T,false); if(depF){ smallText(DEP1,tx,by+22*u,12.5*u,'#c9d9ea',1.2*u); smallText(DEP2,tx,by+39*u,12.5*u,'#c9d9ea',1.2*u); }
       const dvx=W*.56; ctx.save(); ctx.strokeStyle=hexA(T.ring,.45); ctx.lineWidth=2*u; ctx.beginPath(); ctx.moveTo(dvx,fcy-44*u); ctx.lineTo(dvx,fcy+44*u); ctx.stroke(); ctx.restore();
       const [pw,ph]=sh(imgPol,80*u); const x=dvx+30*u; if(imgPol) ctx.drawImage(imgPol,x,fcy-ph/2,pw,ph);
       const t2=x+pw+14*u; ctx.font=`italic 900 ${46*u}px Archivo${FB}`; ctx.fillStyle=chrome(fcy-34*u,fcy+6*u); ctx.fillText('POLICÍA',t2,fcy+6*u); smallText('DE LA PROVINCIA DEL NEUQUÉN',t2,fcy+28*u,13*u,'#c9d9ea',1*u);
     } else {
       const [dw,dh]=sh(imgDcf,92*u), [pw,ph]=sh(imgPol,86*u); if(imgDcf) ctx.drawImage(imgDcf,PAD,fcy-dh/2,dw,dh); if(imgPol) ctx.drawImage(imgPol,W-PAD-pw,fcy-ph/2,pw,ph);
       const mw=markW(58*u); dcfMark(W/2-mw/2,fcy+8*u,58*u,T,false);
-      smallText(DEP1+' '+DEP2,W/2,fcy+32*u,12.5*u,'#c9d9ea',1.2*u,'center'); smallText('POLICÍA DE LA PROVINCIA DEL NEUQUÉN',W/2,fcy+50*u,11*u,T.ring,2*u,'center');
+      if(depF) smallText(DEP1+' '+DEP2,W/2,fcy+32*u,12.5*u,'#c9d9ea',1.2*u,'center'); smallText('POLICÍA DE LA PROVINCIA DEL NEUQUÉN',W/2,fcy+(depF?50:34)*u,11*u,T.ring,2*u,'center');
     }
   } else if(kind==='franja'){
     ctx.save(); ctx.shadowColor='#000a'; ctx.shadowBlur=20*u; ctx.fillStyle=accGrad(0,W,T); ctx.beginPath(); ctx.moveTo(0,footY+18*u); ctx.lineTo(W,footY-6*u); ctx.lineTo(W,H); ctx.lineTo(0,H); ctx.fill(); ctx.restore();
     ctx.fillStyle='#020812'; ctx.fillRect(0,H-30*u,W,30*u); smallText(TAG,W/2+3*u,H-10*u,12*u,'#ffffff',6*u,'center');
     const fcy=footY+(footH-30*u)/2+10*u;
     const [dw,dh]=sh(imgDcf,80*u); if(imgDcf) ctx.drawImage(imgDcf,PAD,fcy-dh/2,dw,dh);
-    const tx=PAD+dw+14*u; dcfMark(tx,fcy+6*u,46*u,T,true); smallText(DEP1+' '+DEP2,tx,fcy+26*u,10.5*u,T.bg[0],.8*u);
+    const tx=PAD+dw+14*u; dcfMark(tx,fcy+6*u,46*u,T,true); if(depF) smallText(DEP1+' '+DEP2,tx,fcy+26*u,10.5*u,T.bg[0],.8*u);
     const [pw,ph]=sh(imgPol,74*u); const t2=W-PAD; ctx.save(); ctx.font=`italic 900 ${40*u}px Archivo${FB}`; const tw=Math.max(ctx.measureText('POLICÍA').width, (ctx.font=`700 ${11*u}px Archivo${FB}`, ctx.measureText('DE LA PROVINCIA DEL NEUQUÉN').width+30*u)); ctx.restore();
     const px=t2-tw-pw-12*u; if(imgPol) ctx.drawImage(imgPol,px,fcy-ph/2,pw,ph);
     ctx.font=`italic 900 ${40*u}px Archivo${FB}`; ctx.fillStyle=T.bg[0]; ctx.fillText('POLICÍA',px+pw+12*u,fcy+4*u); smallText('DE LA PROVINCIA DEL NEUQUÉN',px+pw+12*u,fcy+24*u,11*u,T.bg[0],1*u);
@@ -1909,7 +2006,7 @@ function drawFooter(kind,W,H,u,T,PAD,footY,footH){
     ctx.save(); rr(x0,y0,w,h,26*u); ctx.fillStyle='rgba(255,255,255,.07)'; ctx.fill(); ctx.strokeStyle=hexA(T.ring,.6); ctx.lineWidth=1.6*u; ctx.shadowColor=T.g[0]; ctx.shadowBlur=18*u; ctx.stroke(); ctx.restore();
     smallText(TAG,W/2+3*u,y0+26*u,12*u,T.ring,6*u,'center');
     const fcy=y0+h/2+12*u; const [dw,dh]=sh(imgDcf,70*u); if(imgDcf) ctx.drawImage(imgDcf,x0+24*u,fcy-dh/2,dw,dh);
-    const tx=x0+24*u+dw+14*u; dcfMark(tx,fcy+6*u,42*u,T,false); smallText(DEP1+' '+DEP2,tx,fcy+26*u,10*u,'#c9d9ea',.8*u);
+    const tx=x0+24*u+dw+14*u; dcfMark(tx,fcy+6*u,42*u,T,false); if(depF) smallText(DEP1+' '+DEP2,tx,fcy+26*u,10*u,'#c9d9ea',.8*u);
     const [pw,ph]=sh(imgPol,66*u); const px=x0+w-24*u-pw; if(imgPol) ctx.drawImage(imgPol,px,fcy-ph/2,pw,ph);
     ctx.save(); ctx.textAlign='right'; ctx.font=`italic 900 ${36*u}px Archivo${FB}`; ctx.fillStyle=chrome(fcy-26*u,fcy+4*u); ctx.fillText('POLICÍA',px-12*u,fcy+4*u); ctx.restore(); smallText('DEL NEUQUÉN',px-12*u,fcy+24*u,11*u,'#c9d9ea',2*u,'right');
   } else {
@@ -2018,6 +2115,7 @@ if('serviceWorker' in navigator && location.protocol==='https:' && !/claude|anth
   try{ const fd=read('font.data'); if(fd) await useCustomFont(unb64(fd), read('font.name')||'Mi letra'); }catch(e){}
   if(st.t.font==='custom' && !FONTS.some(f=>f.id==='custom')) st.t.font='archivo';
   renderTitleUI(); renderFrames(); syncSh(); syncLook();
+  st.dateFmt= DATE_FMTS.some(f=>f[0]===read('dateFmt'))? read('dateFmt') : 'dm'; renderDateFmt();
   const plv=readJ('pl'); if(plv&&plv.hdr) st.pl=Object.assign(st.pl,plv); st.pl.off=st.pl.off||{}; st.pl.k=st.pl.k||{};
   $('pHdr1').value=read('p.hdr1')||HDR1_DEF; $('pHdr2').value=read('p.hdr2')||''; st.tpl=read('tpl')==='placa'?'placa':'collage'; syncTpl();
   st.vstyle=read('vstyle')==='pres'?'pres':'grid'; syncVStyle(); syncPF(); renderStkBtns(); renderStyles(); renderEfem(); iniciarMinutas();
